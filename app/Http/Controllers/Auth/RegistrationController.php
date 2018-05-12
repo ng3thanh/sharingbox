@@ -143,7 +143,7 @@ class RegistrationController extends Controller
 
         $message = 'New instructions will be sent to that email address if it is associated with a inactive account.';
 
-        if ($request->expectsJson()) {
+        if ($request->ajax()) {
             return response()->json(['message' => $message], 200);
         }
 

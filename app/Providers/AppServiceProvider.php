@@ -23,6 +23,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $arrayRepository = [
+            'Settings/Icons/Icons',
+        ];
+
+        foreach ($arrayRepository as $key => $repository) {
+            $this->app->bind(
+                'App/Repositories/' . $repository . 'RepositoryInterface',
+                'App/Repositories/' . $repository . 'EloquentRepository');
+        }
     }
 }

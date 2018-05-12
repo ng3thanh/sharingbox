@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Sentinel;
-use App\Http\Requests;
 use Illuminate\Http\Request;
-use Cartalyst\Sentinel\Users\IlluminateUserRepository;
+use Sentinel;
 
 class RoleController extends Controller
 {
@@ -75,8 +73,8 @@ class RoleController extends Controller
         $role->permissions = $permissions;
         $role->save();
 
-        // All done
-        if ($request->expectsJson()) {
+         // All done
+        if ($request->ajax()) {
             return response()->json(['role' => $role], 200);
         }
 
@@ -139,7 +137,7 @@ class RoleController extends Controller
         // Fetch the role object
         $role = $this->roleRepository->findById($id);
         if (!$role) {
-            if ($request->expectsJson()) {
+            if ($request->ajax()) {
                 return response()->json("Invalid role.", 422);
             }
             session()->flash('error', 'Invalid role.');
@@ -161,7 +159,7 @@ class RoleController extends Controller
         $role->save();
 
         // All done
-        if ($request->expectsJson()) {
+        if ($request->ajax()) {
             return response()->json(['role' => $role], 200);
         }
 
@@ -186,7 +184,7 @@ class RoleController extends Controller
 
         // All done
         $message = "Role '{$role->name}' has been removed.";
-        if ($request->expectsJson()) {
+        if ($request->ajax()) {
             return response()->json([$message], 200);
         }
 

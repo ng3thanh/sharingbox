@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Cartalyst\Sentinel\Users\IlluminateUserRepository;
+use Centaur\AuthManager;
+use Centaur\Mail\CentaurWelcomeEmail;
+use Illuminate\Http\Request;
 use Mail;
 use Sentinel;
-use App\Http\Requests;
-use Centaur\AuthManager;
-use Illuminate\Http\Request;
-use Centaur\Mail\CentaurWelcomeEmail;
-use Cartalyst\Sentinel\Users\IlluminateUserRepository;
 
 class UserController extends Controller
 {
@@ -174,7 +173,7 @@ class UserController extends Controller
         // Fetch the user object
         $user = $this->userRepository->findById($id);
         if (!$user) {
-            if ($request->expectsJson()) {
+            if ($request->ajax()) {
                 return response()->json("Invalid user.", 422);
             }
             session()->flash('error', 'Invalid user.');
@@ -189,7 +188,7 @@ class UserController extends Controller
         $user->roles()->sync($roleIds);
 
         // All done
-        if ($request->expectsJson()) {
+        if ($request->ajax()) {
             return response()->json(['user' => $user], 200);
         }
 
@@ -213,7 +212,7 @@ class UserController extends Controller
         if (Sentinel::getUser()->id == $user->id) {
             $message = "You cannot remove yourself!";
 
-            if ($request->expectsJson()) {
+            if ($request->ajax()) {
                 return response()->json($message, 422);
             }
             session()->flash('error', $message);
@@ -226,7 +225,7 @@ class UserController extends Controller
 
         // All done
         $message = "{$user->email} has been removed.";
-        if ($request->expectsJson()) {
+        if ($request->ajax()) {
             return response()->json([$message], 200);
         }
 
