@@ -77,7 +77,7 @@
 
 			<!-- Header Icon -->
 			<div class="header-icons">
-				<a href="#" class="header-wrapicon1 dis-block">
+				<a href="{{ route('auth.login.form') }}" class="header-wrapicon1 dis-block">
 					<img src="{{ asset('web/images/icons/icon-header-01.png') }}" class="header-icon1" alt="ICON">
 				</a>
 

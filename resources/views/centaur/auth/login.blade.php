@@ -5,26 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="{{ asset('image/favicon.ico') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('auth/css/bootstrap.min.css') }}">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('auth/css/font-awesome.min.css') }}">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('auth/fonts/linearicons/icon-font.min.css') }}">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('fonts/linearicons/icon-font.min.css') }}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/animate/animate.css') }}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/css-hamburgers/hamburgers.min.css') }}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/animsition/css/animsition.min.css') }}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/select2/select2.min.css') }}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/daterangepicker.css') }}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/util-login.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/main-login.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('auth/css/util-login.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('auth/css/main-login.css') }}">
     <!--===============================================================================================-->
 </head>
 <body>
@@ -70,7 +58,7 @@
                 </div>
             </form>
 
-            <div class="login100-more" style="background-image: url('image/bg-01.jpg');"></div>
+            <div class="login100-more" style="background-image: url('auth/images/bg-01.jpg');"></div>
         </div>
     </div>
 </div>
@@ -78,28 +66,9 @@
 
 <div id="dropDownSelect1"></div>
 
-<!--===============================================================================================-->
-<script src="{{ asset('js/jquery.min.js') }}"></script>
-<!--===============================================================================================-->
-<script src="{{ asset('vendor/animsition/js/animsition.min.js') }}"></script>
-<!--===============================================================================================-->
-<script src="{{ asset('vendor/bootstrap/js/popper.js') }}"></script>
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<!--===============================================================================================-->
-<script src="{{ asset('vendor/select2/select2.min.js') }}"></script>
-<script>
-    $(".selection-2").select2({
-        minimumResultsForSearch: 20,
-        dropdownParent: $('#dropDownSelect1')
-    });
-</script>
-<!--===============================================================================================-->
-<script src="{{ asset('js/moment.min.js') }}"></script>
-<script src="{{ asset('js/daterangepicker.js') }}"></script>
-<!--===============================================================================================-->
-<script src="{{ asset('vendor/countdowntime/countdowntime.js') }}"></script>
-<!--===============================================================================================-->
-<script src="{{ asset('js/main-login.js') }}"></script>
+<script src="{{ asset('auth/js/jquery.min.js') }}"></script>
+<script src="{{ asset('auth/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('auth/js/main-login.js') }}"></script>
 
 </body>
 </html>

@@ -11,7 +11,7 @@
 |
 */
 
-Route::middleware('secret')->domain('admin.' . env('APP_DOMAIN'))->namespace('Admin')->group(function () {
+Route::middleware('secret')->domain('manager.' . env('APP_DOMAIN'))->namespace('Admin')->group(function () {
 
     Route::get('/', 'DashboardController@index')->name('main');
 
@@ -73,7 +73,7 @@ Route::middleware('secret')->domain('admin.' . env('APP_DOMAIN'))->namespace('Ad
     });
 });
 
-Route::middleware('guest')->domain('admin.' . env('APP_DOMAIN'))->group(function () {
+Route::middleware('guest')->domain('manager.' . env('APP_DOMAIN'))->group(function () {
     // Authorization
     Route::get('/login', [
         'as' => 'auth.login.form',
