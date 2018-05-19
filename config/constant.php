@@ -1,5 +1,10 @@
 <?php
 
-    return [
-
-    ];
+return [
+    'roles' => [
+        'admin' => 'administrator',
+        'mod'   => 'moderator',
+        'staff' => 'staff',
+        'shop'  => 'shop'
+    ]
+];

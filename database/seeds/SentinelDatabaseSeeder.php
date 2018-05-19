@@ -18,7 +18,7 @@ class SentinelDatabaseSeeder extends Seeder
             'username' => 'admin',
             'email'    => 'admin@admin.com',
             'phone'    => '0936200593',
-            'password' => '12345678'
+            'password' => '12345678',
         ));
 
         $mod = Sentinel::getUserRepository()->create(array(
@@ -39,7 +39,7 @@ class SentinelDatabaseSeeder extends Seeder
             'username' => 'shop',
             'email'    => 'shop@shop.com',
             'phone'    => '0936200593',
-            'password' => 'password'
+            'password' => '12345678'
         ));
 
         // Create Activations

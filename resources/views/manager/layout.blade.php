@@ -13,9 +13,17 @@
 
     <body class="hold-transition skin-blue sidebar-mini">
     	<div class="wrapper">
-    		@include('manager.partials.header') 
-    		@include('manager.partials.sidebar')
-    
+    		@include('manager.partials.header')
+
+			@if($user->inRole(config('constant.roles.admin')))
+    			@include('manager.partials.sidebar.admin')
+			@elseif($user->inRole(config('constant.roles.mod')))
+				@include('manager.partials.sidebar.mod')
+			@elseif($user->inRole(config('constant.roles.staff')))
+				@include('manager.partials.sidebar.staff')
+			@else
+				@include('manager.partials.sidebar.shop')
+			@endif
     		<div class="content-wrapper">
     			@include('manager.partials.breadcrumb')
 				@include('manager.partials.notification')

@@ -2,11 +2,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\Coins\CoinsEloquentRepository;
-use App\Repositories\CoinsExchange\CoinsExchangeEloquentRepository;
-use Cartalyst\Sentinel\Native\Facades\Sentinel;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 
 class DashboardController extends Controller
 {
@@ -22,9 +19,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-//        $user = Auth::getUser();
-//        dd($user);
-        return view('manager.pages.dashboard');
+        $user = Sentinel::getUser();
+        return view('manager.pages.dashboard', ['user' => $user]);
     }
 
     /**

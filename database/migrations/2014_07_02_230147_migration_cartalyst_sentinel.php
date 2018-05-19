@@ -99,6 +99,7 @@ class MigrationCartalystSentinel extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('phone');
+            $table->string('avatar');
             $table->string('address')->nullable();
             $table->string('birthday')->nullable();
             $table->text('permissions')->nullable();
