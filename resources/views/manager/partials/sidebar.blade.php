@@ -7,7 +7,7 @@
 		<!-- Sidebar user panel -->
 		<div class="user-panel">
 			<div class="pull-left image">
-				<img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+				<img src="{{ asset('manager/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
 			</div>
 			<div class="pull-left info">
 				<p>Alexander Pierce</p>
@@ -99,7 +99,7 @@
 						</a>
 						<ul class="treeview-menu">
 							<li>
-								<a href="{{ URL::route('money.index') }}">
+								<a href="{{ URL::route('main') }}">
 									<i class="fa fa-calculator"></i> Money
 								</a>
 							</li>
@@ -160,12 +160,12 @@
 						</a>
 						<ul class="treeview-menu">
 							<li>
-								<a href="{{ URL::route('note.index') }}">
+								<a href="{{ URL::route('main') }}">
 									<i class="fa fa-sticky-note"></i> Personal Notes
 								</a>
 							</li>
 							<li>
-								<a href="{{ URL::route('diary.index') }}">
+								<a href="{{ URL::route('main') }}">
 									<i class="fa fa-eraser"></i> Personal Diary
 								</a>
 							</li>
@@ -184,7 +184,7 @@
 				</a>
 				<ul class="treeview-menu">
 					<li>
-						<a href="{{ URL::route('ncoin.index') }}">
+						<a href="{{ URL::route('main') }}">
 							<i class="fa fa-circle-o"></i>Normal Tracking
 						</a>
 					</li>
@@ -218,7 +218,7 @@
 			</li>
 
 			<li>
-				<a href="{{ URL::route('schedule.index') }}">
+				<a href="{{ URL::route('main') }}">
 					<i class="fa fa-calendar"></i>
 					<span> Schedule Management</span>
 					<span class="pull-right-container">

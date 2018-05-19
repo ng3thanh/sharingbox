@@ -15,12 +15,30 @@ class SentinelDatabaseSeeder extends Seeder
         DB::table('users')->truncate();
 
         $admin = Sentinel::getUserRepository()->create(array(
+            'username' => 'admin',
             'email'    => 'admin@admin.com',
-            'password' => 'password'
+            'phone'    => '0936200593',
+            'password' => '12345678'
         ));
 
-        $user = Sentinel::getUserRepository()->create(array(
-            'email'    => 'user@user.com',
+        $mod = Sentinel::getUserRepository()->create(array(
+            'username' => 'mod',
+            'email'    => 'mod@mod.com',
+            'phone'    => '0936200593',
+            'password' => '12345678'
+        ));
+
+        $staff = Sentinel::getUserRepository()->create(array(
+            'username' => 'staff',
+            'email'    => 'staff@staff.com',
+            'phone'    => '0936200593',
+            'password' => '12345678'
+        ));
+
+        $shop = Sentinel::getUserRepository()->create(array(
+            'username' => 'shop',
+            'email'    => 'shop@shop.com',
+            'phone'    => '0936200593',
             'password' => 'password'
         ));
 
@@ -28,8 +46,12 @@ class SentinelDatabaseSeeder extends Seeder
         DB::table('activations')->truncate();
         $code = Activation::create($admin)->code;
         Activation::complete($admin, $code);
-        $code = Activation::create($user)->code;
-        Activation::complete($user, $code);
+        $code = Activation::create($mod)->code;
+        Activation::complete($mod, $code);
+        $code = Activation::create($staff)->code;
+        Activation::complete($staff, $code);
+        $code = Activation::create($shop)->code;
+        Activation::complete($shop, $code);
 
         // Create Roles
         $administratorRole = Sentinel::getRoleRepository()->create(array(
@@ -54,14 +76,23 @@ class SentinelDatabaseSeeder extends Seeder
                 'users.view' => true,
             )
         ));
-        $subscriberRole = Sentinel::getRoleRepository()->create(array(
-            'name' => 'Subscriber',
-            'slug' => 'subscriber',
+
+        $staffRole = Sentinel::getRoleRepository()->create(array(
+            'name' => 'Staff',
+            'slug' => 'staff',
+            'permissions' => array()
+        ));
+
+        $shopRole = Sentinel::getRoleRepository()->create(array(
+            'name' => 'Shop',
+            'slug' => 'shop',
             'permissions' => array()
         ));
 
         // Assign Roles to Users
         $administratorRole->users()->attach($admin);
-        $subscriberRole->users()->attach($user);
+        $moderatorRole->users()->attach($mod);
+        $staffRole->users()->attach($staff);
+        $shopRole->users()->attach($shop);
     }
 }

@@ -1,4 +1,6 @@
-@extends('admin.layout') @section('title', 'Dashboard')
+@extends('manager.layout')
+
+@section('title', 'Dashboard')
 
 @section('content')
 
@@ -10,7 +12,7 @@
 			<!-- small box -->
 			<div class="small-box bg-aqua">
 				<div class="inner">
-					<h3>{{ $totalCoins }}</h3>
+					<h3>1212</h3>
 					@if(true)
 					<p>Tổng số coin</p>
 					<p>Giá bitcoin tại thời điểm mới nhất</p>
@@ -77,144 +79,12 @@
 	<!-- Main row -->
 	<div class="row">
 		<div class="col-lg-12">
-			<div class="box">
-				<div class="box-header with-border">
-					<h3 class="box-title">Danh mục task cần làm</h3>
-
-					<div class="box-tools pull-right">
-						<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-						</button>
-						<div class="btn-group">
-							<button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
-								<i class="fa fa-wrench"></i></button>
-							<ul class="dropdown-menu" role="menu">
-								<li><a href="#">Action</a></li>
-								<li><a href="#">Another action</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li class="divider"></li>
-								<li><a href="#">Separated link</a></li>
-							</ul>
-						</div>
-						<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-					</div>
-				</div>
-				<!-- /.box-header -->
-
-				<div class="box-body">
-					+ Version 1:<br><br>
-
-					-- Tạo giao diện đơn giản (OK)<br>
-					-- Lấy thông tin Bitcoin trên Bittrex (Raw)<br><br>
-
-					+ Version 2: 04/02/2018<br><br>
-
-					-- Đăng nhập admin (Raw)<br><br>
-
-					+ Version 3.0: Cá nhân<br><br>
-
-					-- Ghi chú: Các note cá nhân (Inprogress) <br>
-					-- Nhật ký cá nhân: Viết nhật ký hàng ngày (bằng tiếng anh)<br>
-					-- User profile. <br><br>
-
-					+ Version 3.1: Cá nhân<br><br>
-
-					-- Tiền bạc: Thu + chi + cho vay + phân chia các khoản được phép tiêu<br>
-					-- Định hướng: Mục tiêu dài hạn + mục tiêu ngắn hạn<br>
-					-- Đầu tư: Các khoản đầu tư + theo dõi diễn biến đầu tư<br><br>
-
-					+ Version 3.2: Cá nhân<br><br>
-
-					-- Theo dõi sức khỏe: Theo dõi các thông số cá nhân (đính kèm ảnh: hàng tháng)<br>
-					-- Chế độ ăn: 1. Tuyển tập thức ăn chứa calo + 2. Tính toán lượng calo cần thiết cho bản thân<br>
-					-- Gym: Bài tập gym + theo dõi hàng ngày<br><br>
-
-					+ Version 3.3: Cá nhân<br><br>
-
-					-- Sách báo: Sách đã đọc + đã mua + Nhận xét về sách (comment = tiếng anh)<br>
-					-- Học tập: Kế hoạch học tập + theo dõi hàng ngày<br><br>
-
-					+ Version 4:<br><br>
-
-					-- Theo dõi từng Coin: <br>
-					-- Dự đoán Coin<br><br>
-
-					+ Version 5:<br><br>
-
-					-- Quản lý tài khoản: Đối với admin<br>
-					-- Quản lý quyền: Đối với Admin<br><br>
-
-					+ Version 6:<br><br>
-
-					--Quản lý lý lịch: - Cho phép hiển thị và không hiển thị gì trên màn hình bên ngoài<br>
-					--Theo dõi ai đó: Thông báo ngày sinh + facebook của ai đó để chúc mừng.<br><br>
-
-					+ Version 7:<br><br>
-
-					-- Setting website: Setting website<br>
-					-- Theo dõi website: Theo dõi những ai truy cập<br><br>
-
-					+ Version 8:<br><br>
-
-					-- Phân quyền: 3 mốc Amin (All) + Mod (Block user) + User<br><br>
-
-					+ Version 9: <br><br>
-
-					-- Tạo lịch<br>
-					-- Chat<br>
-					-- Thông tin người dùng<br>
-					-- Thông báo<br><br>
-
-				</div>
-			</div>
-			<!-- /.box -->
 		</div>
 		<!-- /.col -->
 
 		<!-- Left col -->
 		<section class="col-lg-7 connectedSortable">
-		
-			<!-- Custom tabs (Charts with tabs)-->
-			<div class="nav-tabs-custom">
 
-				<!-- Tabs within a box -->
-				<ul class="nav nav-tabs pull-right">
-					@foreach($lowestCoins as $key => $coin)
-					<li class="@if(array_search(head($lowestCoins), $lowestCoins) == $key) active @endif">
-						<a href="#lowest-chart-{{ $key }}" data-toggle="tab">{{ $key }}</a>
-					</li>
-					@endforeach
-					<li class="pull-left header"><i class="fa fa-bitcoin"></i> Lowest Coin</li>
-				</ul>
-				<div class="tab-content no-padding">
-					<!-- Morris chart - Sales -->
-					@foreach($lowestCoins as $key => $coin)
-					<div class="chart tab-pane @if(array_search(head($lowestCoins), $lowestCoins) == $key) active @endif" id="lowest-chart-{{ $key }}" style="position: relative; height: 300px;"></div>
-					@endforeach
-				</div>
-			</div>
-			<!-- /.nav-tabs-custom -->
-
-			<!-- Custom tabs (Charts with tabs)-->
-			<div class="nav-tabs-custom">
-
-				<!-- Tabs within a box -->
-				<ul class="nav nav-tabs pull-right">
-					@foreach($highestCoins as $key => $coin)
-					<li class="@if(array_search(head($highestCoins), $highestCoins) == $key) active @endif">
-						<a href="#highest-chart-{{ $key }}" data-toggle="tab">{{ $key }}</a>
-					</li>
-					@endforeach
-					<li class="pull-left header"><i class="fa fa-bitcoin"></i> Highest Coin</li>
-				</ul>
-				<div class="tab-content no-padding">
-					<!-- Morris chart - Sales -->
-					@foreach($highestCoins as $key => $coin)
-					<div class="chart tab-pane @if(array_search(head($highestCoins), $highestCoins) == $key) active @endif" id="highest-chart-{{ $key }}" style="position: relative; height: 300px;"></div>
-					@endforeach
-				</div>
-			</div>
-			<!-- /.nav-tabs-custom -->
-			
 			<!-- Chat box -->
 			<div class="box box-success">
 				<div class="box-header">
@@ -237,7 +107,7 @@
 				<div class="box-body chat" id="chat-box">
 					<!-- chat item -->
 					<div class="item">
-						<img src="dist/img/user4-128x128.jpg" alt="user image"
+						<img src="manager/dist/img/user4-128x128.jpg" alt="user image"
 							class="online">
 
 						<p class="message">
@@ -261,7 +131,7 @@
 					<!-- /.item -->
 					<!-- chat item -->
 					<div class="item">
-						<img src="dist/img/user3-128x128.jpg" alt="user image"
+						<img src="manager/dist/img/user3-128x128.jpg" alt="user image"
 							class="offline">
 
 						<p class="message">
@@ -275,7 +145,7 @@
 					<!-- /.item -->
 					<!-- chat item -->
 					<div class="item">
-						<img src="dist/img/user2-160x160.jpg" alt="user image"
+						<img src="manager/dist/img/user2-160x160.jpg" alt="user image"
 							class="offline">
 
 						<p class="message">
@@ -623,62 +493,9 @@
 </section>
 <!-- /.content -->
 
-@endsection @section('script')
-<script type="text/javascript">
-    @foreach($lowestCoins as $key => $coin)
-    	var lowCoin{{ $key }} = new Morris.Area({
-          element   : 'lowest-chart-{{ $key }}',
-          resize    : true,
-          data      : [
-    		@foreach($coin as $k => $v)
-          	{ time: '{{ $v['created_at'] }}', lowest: '{{ $v['lowest_price'] }}', highest: '{{ $v['highest_price'] }}' },
-    		@endforeach
-          ],
-          xkey      : 'time',
-          ykeys     : ['lowest', 'highest'],
-          labels    : ['Lowest', 'Highest'],
-          lineColors: ['#a0d0e0', '#3c8dbc'],
-          hideHover : 'auto'
-        });
-    @endforeach
+@endsection
 
-    @foreach($highestCoins as $key => $coin)
-    	var highCoin{{ $key }} = new Morris.Area({
-          element   : 'highest-chart-{{ $key }}',
-          resize    : true,
-          data      : [
-    		@foreach($coin as $k => $v)
-          	{ time: '{{ $v['created_at'] }}', lowest: '{{ $v['lowest_price'] }}', highest: '{{ $v['highest_price'] }}' },
-    		@endforeach
-          ],
-          xkey      : 'time',
-          ykeys     : ['lowest', 'highest'],
-          labels    : ['Lowest', 'Highest'],
-          lineColors: ['#a0d0e0', '#3c8dbc'],
-          hideHover : 'auto'
-        });
-	@endforeach
-	
-    $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
-		var target = $(e.target).attr("href") // activated tab
+@section('script')
 
-		switch (target) {
-			@foreach($lowestCoins as $key => $coin)
-            case "#lowest-chart-{{ $key }}":
-        		lowCoin{{ $key }}.redraw();
-              	$(window).trigger('resize');
-              	break;
-          	@endforeach
-          	@foreach($highestCoins as $key => $coin)
-            case "#highest-chart-{{ $key }}":
-        		highCoin{{ $key }}.redraw();
-              	$(window).trigger('resize');
-              	break;
-          	@endforeach
-      	}
-    });
-
-</script>
-
-<script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
+<script src="{{ asset('manager/dist/js/pages/dashboard.js') }}"></script>
 @endsection

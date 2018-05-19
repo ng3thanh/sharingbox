@@ -4,19 +4,15 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Repositories\Coins\CoinsEloquentRepository;
 use App\Repositories\CoinsExchange\CoinsExchangeEloquentRepository;
+use Cartalyst\Sentinel\Native\Facades\Sentinel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
-
-    protected $coinRepository;
-
-    protected $coinsExchangeRepository;
-
-    public function __construct(CoinsEloquentRepository $coinRepository, CoinsExchangeEloquentRepository $coinsExchangeRepository)
+    public function __construct()
     {
-        $this->coinRepository = $coinRepository;
-        $this->coinsExchangeRepository = $coinsExchangeRepository;
+
     }
 
     /**
@@ -26,15 +22,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $totalCoins = $this->coinRepository->getAll()->count();
-        $lowestCoins = $this->coinsExchangeRepository->getLowestChangeRateCoin();
-        $highestCoins = $this->coinsExchangeRepository->getHighestChangeRateCoin();
-        
-        return view('admin.pages.dashboard', [
-            'totalCoins' => $totalCoins,
-            'lowestCoins' => $lowestCoins,
-            'highestCoins' => $highestCoins
-        ]);
+//        $user = Auth::getUser();
+//        dd($user);
+        return view('manager.pages.dashboard');
     }
 
     /**
