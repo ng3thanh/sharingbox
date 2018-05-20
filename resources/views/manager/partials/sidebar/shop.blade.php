@@ -42,8 +42,8 @@
             		</span>
 				</a>
 				<ul class="treeview-menu">
-					<li class="treeview">
-						<a href="{{ route('') }}">
+					<li>
+						<a href="{{ route('shop_product.index') }}">
 							<i class="fa fa-heartbeat"></i> Danh sách sản phẩm
 							<span class="pull-right-container">
 								<small class="label pull-right bg-blue">12</small>
@@ -51,8 +51,8 @@
 						</a>
 					</li>
 
-					<li class="treeview">
-						<a href="#">
+					<li>
+						<a href="{{ route('shop_product.create') }}">
 							<i class="fa fa-credit-card"></i> Thêm mới sản phẩm
 						</a>
 					</li>

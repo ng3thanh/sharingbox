@@ -11,13 +11,13 @@
 |
 */
 
-Route::middleware('manager')->domain('manager.' . env('APP_DOMAIN'))->namespace('Admin')->group(function () {
+Route::middleware('manager')->domain('manager.' . env('APP_DOMAIN'))->namespace('Manager')->group(function () {
 
     Route::get('/', 'DashboardController@index')->name('main');
 
     // Shop role
     Route::prefix('shop')->namespace('Shop')->group(function () {
-        Route::resource('product', 'ProductController');
+        Route::resource('shop_product', 'ProductController');
     });
 
     Route::prefix('users')->group(function () {
